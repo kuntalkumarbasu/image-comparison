@@ -5,7 +5,8 @@ import cv2,csv,time,sys
 
 #write input csv file
 def create_input_file(file1, file2):
-	input_csv = str(pathlib.Path(__file__).parent.absolute()) + '/image-comparison.csv'
+
+	input_csv=pathlib.Path(__file__).parent.absolute() / "image-comparison.csv"
 	csvfile = open(input_csv, "w")
 	csvfile.truncate()
 	csvfile.close()
@@ -13,8 +14,8 @@ def create_input_file(file1, file2):
 		csvfile.truncate()
 		writer = csv.writer(csvfile, delimiter=',',
 							quotechar='|', quoting=csv.QUOTE_MINIMAL)
-		pathA = str(pathlib.Path(__file__).parent.absolute()) + '/images/' + file1
-		pathB = str(pathlib.Path(__file__).parent.absolute()) + '/images/' + file2
+		pathA = pathlib.Path(__file__).parent.absolute() / 'images' / file1
+		pathB = pathlib.Path(__file__).parent.absolute() / 'images' / file2
 		writer.writerow(['image1', 'image2'])
 		writer.writerow([pathA, pathB])
 		return input_csv
@@ -42,8 +43,8 @@ def test_diff_size_images():
 	input_csv = create_input_file('original-resized-cucumbers.png', 'original-cucumbers.png')
 	with open(input_csv) as csvfile:
 		process_input_csv(csvfile)
-		pathA = str(pathlib.Path(__file__).parent.absolute()) + '/expected_results/' + 'expected_results_diff_size.csv'
-		pathB = str(pathlib.Path(__file__).parent.absolute()) + '/results.csv'
+		pathA = pathlib.Path(__file__).parent.absolute() / 'expected_results' / 'expected_results_diff_size.csv'
+		pathB = pathlib.Path(__file__).parent.absolute() / 'results.csv'
 		result = compare_csv(pathA,pathB)
 	if result:
 		 print(f'{Fore.GREEN} test different size image is Passed{Style.RESET_ALL}')
@@ -56,8 +57,8 @@ def test_diff_ext_images():
 	input_csv = create_input_file('original-dogs.jpg', 'original-dogs.png')
 	with open(input_csv) as csvfile:
 		process_input_csv(csvfile)
-		pathA = str(pathlib.Path(__file__).parent.absolute()) + '/expected_results/' + 'expected_results_diff_extn.csv'
-		pathB = str(pathlib.Path(__file__).parent.absolute()) + '/results.csv'
+		pathA = pathlib.Path(__file__).parent.absolute() / 'expected_results' /'expected_results_diff_extn.csv'
+		pathB = pathlib.Path(__file__).parent.absolute() / 'results.csv'
 		result = compare_csv(pathA,pathB)
 	if result:
 		 print(f'{Fore.GREEN} test same image with different extension is Passed{Style.RESET_ALL}')
@@ -69,8 +70,8 @@ def test_same_images():
 	input_csv = create_input_file('original-cucumbers.png', 'original-cucumbers.png')
 	with open(input_csv) as csvfile:
 		process_input_csv(csvfile)
-		pathA = str(pathlib.Path(__file__).parent.absolute()) + '/expected_results/' + 'expected_results_same_image.csv'
-		pathB = str(pathlib.Path(__file__).parent.absolute()) + '/results.csv'
+		pathA = pathlib.Path(__file__).parent.absolute() / 'expected_results' /'expected_results_same_image.csv'
+		pathB = pathlib.Path(__file__).parent.absolute() / 'results.csv'
 		result = compare_csv(pathA,pathB)
 	if result:
 		 print(f'{Fore.GREEN} test same image is Passed{Style.RESET_ALL}')

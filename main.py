@@ -1,8 +1,18 @@
 #!/usr/bin/env python
+from colorama import init,Fore,Style
 from skimage.metrics import structural_similarity
-import cv2
-import csv
-import time
+import cv2,csv,time,sys,pathlib
+
+
+def get_inputFile():
+    try:
+        input_csv=str(sys.argv[1])
+    except IndexError as e:
+        print(f'{Fore.RED} No explicit CSV file given')
+        print(f' Assuming image-comparison.csv is present in current path{Style.RESET_ALL}')
+        input_csv = 'image-comparison.csv'
+        #input_csv = 'sample.csv'
+    return input_csv
 
 
 def compare_images(image1, image2):
@@ -10,12 +20,12 @@ def compare_images(image1, image2):
     similar = 1- structural_similarity(image1, image2) ## Structural Similiarity Index has 1 signifying identical images, not 0
     elapsed = time.time() - start_time
 
-    return similar, elapsed
+    return round(similar,3), round(elapsed,3)
     
 
 ## appending to the results.csv file with the paths, similiarity index, and time elapsed for the comparison
 def output_file(pathA, pathB, similar, elapsed):
-    with open('results.csv', 'a') as csvfile:
+    with open(str(pathlib.Path(__file__).parent.absolute()) + '/results.csv', 'a') as csvfile:
         writer = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
         writer.writerow([pathA, pathB, similar, elapsed])
@@ -33,13 +43,11 @@ def scale_images(image1, image2, width=640, height=480):
     return image1, image2
 
 
-## Logic begins here! 
+## Full processing here
 
-## read in csv containing all images that are being compared
-with open('image-comparison.csv') as csvfile:
-
+def process_input_csv(csvfile):
 ## creating new file and setting the headers
-    with open('results.csv', 'w') as newcsv:
+    with open(str(pathlib.Path(__file__).parent.absolute()) + '/results.csv', 'w') as newcsv:
         writer = csv.writer(newcsv, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(['image1', 'image2', 'similar', 'elapsed'])
@@ -62,5 +70,19 @@ with open('image-comparison.csv') as csvfile:
         similar, elapsed = compare_images(resized_image1, resized_image2)
         
         output_file(path1, path2, similar, elapsed)
+
+    print(f'{Fore.GREEN} Please check results.csv in the current path for results {Style.RESET_ALL}')
+
+def main():
+
+## read in csv containing all images that are being compared
+    input_csv = get_inputFile()
+    print(input_csv)
+    with open(input_csv) as csvfile:
+        process_input_csv(csvfile)
+
+if __name__ == '__main__':
+    main()
+
 
 

@@ -16,7 +16,7 @@ Information regarding the algorithm can be found here: https://en.wikipedia.org/
 * The order of the columns are: image1, image2
 * The paths of the images lead to an existing image
 
-2. Python is already installed (I'm using version 3.6)
+2. Python is already installed (I'm using version 3.7)
 * ```pip``` is already installed
 * If Windows is being used, I assume Anaconda is already installed
 
@@ -24,13 +24,21 @@ Information regarding the algorithm can be found here: https://en.wikipedia.org/
 
 ## Libraries Required 
 - If using Windows, perform these commands in Anaconda.
-#### cv2 (opencv.python version 4.1.0.25 at the time of development)
+#### cv2 version : 4.2.0.34
 
-``` pip install opencv-python ```
+``` pip3 install opencv-python ``` 
 
-#### scikit.image (version 0.15.0 at the time of development)
+#### scikit.image Version : 0.16.2
 
-``` pip install scikit-image ```
+``` pip3 install scikit-image ```
+
+#### colorama Version: 0.4.3
+
+``` pip3 install colorama ```
+
+#### pathlib Version: 1.0.1
+
+```pip3 install pathlib ```
 
 ## Design 
 
@@ -98,11 +106,26 @@ __by default__
  PNG and JPEG file types were tested. Comparison between the differing file types work as intended. 
  File types of different sizes are resized to the intended dimensions and can be properly compared.
  Output CSV file was checked to ensure it matches the order of images being compared from the original CSV file.
+
+ Automated test cases has been written and it covers the following scenario,
+ 	1) different size image
+ 	2) different extension image
+ 	3) same image
+
+ The expected_results folder has the expected resultset for each scenario. In the test cases we only compared the `similar` column
  
  ## How to Use
- Once all necessary libraries have been imported, you must make sure the `image-comparison.csv` file is in the same level as the `main.py` file. If not, you have to change the code where the `image-comparison.csv` is, to the absolute path of the csv file with the list of images.
+ Once all necessary libraries have been imported, 
+ you must make sure the `image-comparison.csv` file is in the same level as the `main.py` file. Or you can provide an absolute or relative filepath with a file name
+
  
- To run the script, type: `python main.py` in the command line.
+ To run the script, 
+ type: `python3 main.py` in the command line (if `image-comparison.csv` is available in same level as the `main.py` file ).
+ type: `python3 main.py <absolute/relative file for the input csv>` in the command line
+
+ Note: I have added a sample csv which is compatible with the images in the image folder. if we run the below command from the base directory of this project, the code will run and generate result.
+
+ `python3 main.py sample.csv`
  
  #### Note: Sample images
  I've included some sample images (original, contrasted, "photoshopped") in case you needed some quick "similar" photos to test with. Apologies for no sample csv file.

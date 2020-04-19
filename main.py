@@ -25,7 +25,7 @@ def compare_images(image1, image2):
 
 ## appending to the results.csv file with the paths, similiarity index, and time elapsed for the comparison
 def output_file(pathA, pathB, similar, elapsed):
-    with open(str(pathlib.Path(__file__).parent.absolute()) + '/results.csv', 'a') as csvfile:
+    with open(pathlib.Path(__file__).parent.absolute() / 'results.csv', 'a') as csvfile:
         writer = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
         writer.writerow([pathA, pathB, similar, elapsed])
@@ -47,7 +47,7 @@ def scale_images(image1, image2, width=640, height=480):
 
 def process_input_csv(csvfile):
 ## creating new file and setting the headers
-    with open(str(pathlib.Path(__file__).parent.absolute()) + '/results.csv', 'w') as newcsv:
+    with open(pathlib.Path(__file__).parent.absolute() / 'results.csv', 'w') as newcsv:
         writer = csv.writer(newcsv, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(['image1', 'image2', 'similar', 'elapsed'])

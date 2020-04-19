@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from skimage.measure import compare_ssim
+from skimage.metrics import structural_similarity
 import cv2
 import csv
 import time
@@ -7,7 +7,7 @@ import time
 
 def compare_images(image1, image2):
     start_time = time.time()
-    similar = 1- compare_ssim(image1, image2) ## Structural Similiarity Index has 1 signifying identical images, not 0
+    similar = 1- structural_similarity(image1, image2) ## Structural Similiarity Index has 1 signifying identical images, not 0
     elapsed = time.time() - start_time
 
     return similar, elapsed

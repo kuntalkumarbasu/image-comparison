@@ -113,6 +113,9 @@ __by default__
  	3) same image
 
  The expected_results folder has the expected resultset for each scenario. In the test cases we only compared the `similar` column
+
+ To run the test, 
+ type: `python3 test_main.py` in the command line 
  
  ## How to Use
  Once all necessary libraries have been imported, 

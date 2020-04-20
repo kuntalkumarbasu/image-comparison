@@ -76,8 +76,7 @@ def process_input_csv(csvfile):
 def main():
 
 ## read in csv containing all images that are being compared
-    input_csv = get_inputFile()
-    print(input_csv)
+    input_csv = get_inputFile()     
     with open(input_csv) as csvfile:
         process_input_csv(csvfile)
 

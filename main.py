@@ -47,7 +47,8 @@ def scale_images(image1, image2, width=640, height=480):
 
 def process_input_csv(csvfile):
 ## creating new file and setting the headers
-    with open(pathlib.Path(__file__).parent.absolute() / 'results.csv', 'w', newline="\n") as newcsv:
+    resultsfile = pathlib.Path(__file__).parent.absolute() / 'results.csv'
+    with open(resultsfile, 'w', newline="\n") as newcsv:
         writer = csv.writer(newcsv, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
         writer.writerow(['image1', 'image2', 'similar', 'elapsed'])
@@ -71,7 +72,8 @@ def process_input_csv(csvfile):
         
         output_file(path1, path2, similar, elapsed)
 
-    print(f'{Fore.GREEN} Please check results.csv in the current path for results {Style.RESET_ALL}')
+    print (f'{Fore.GREEN} Please check ',resultsfile,' for results')
+    print (f'{Style.RESET_ALL}')
 
 def main():
 

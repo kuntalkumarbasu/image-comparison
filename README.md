@@ -10,39 +10,6 @@ Instead of having Bjorn manually open up two pairs of images and give a "Bjorn S
 In a nutshell, this python script reads-in a csv file that contains (absolute) paths to images that are to be compared. Once the pair of images are known, it calculates the Structural Similarity Index, which is a method of evaluating the pixels in given windows of the image.
 Information regarding the algorithm can be found here: https://en.wikipedia.org/wiki/Structural_similarity
 
-## Assumptions
-1. Valid CSV file
-* The headers, rows, and columns are valid
-* The order of the columns are: image1, image2
-* The paths of the images lead to an existing image
-
-2. Python is already installed (I'm using version 3.7 in mac 3.6.8 in windows)
-* ```pip``` is already installed
-* If Windows is being used, I assume Anaconda is already installed with Python compatibility of 3.6 or instead you can download and use Python 3.6.8 directly as well
-* More details in GIT WIKI 
-
-3. The original csv file with the list of images is named `image-comparison.csv` and is in the same directory as `main.py`.
-
-## Libraries Required 
-
-#### cv2 version : 4.2.0.34 (for windows 3.3.0.9 )
-
-``` pip3 install opencv-python ``` 
-
-``` pip install opencv-python=3.3.0.9 ``` ( for windows)
-
-#### scikit.image Version : 0.16.2
-
-``` pip3 install scikit-image ```
-
-#### colorama Version: 0.4.3
-
-``` pip3 install colorama ```
-
-#### pathlib Version: 1.0.1
-
-```pip3 install pathlib ```
-
 ## Design 
 
 ### Comparison Libraries
@@ -117,12 +84,45 @@ __by default__
 
  The expected_results folder has the expected resultset for each scenario. In the test cases we only compared the `similar` column
 
- To run the test, 
- type: `python3 test_main.py` in the command line 
+
+## Assumptions
+1. Valid CSV file
+* The headers, rows, and columns are valid
+* The order of the columns are: image1, image2
+* The paths of the images lead to an existing image
+
+2. Python is already installed (I'm using version 3.7 in mac 3.6.8 in windows)
+* ```pip``` is already installed
+
+## SETUP 
+
+### For MAC and Linux environments
+
+#### Libraries Required 
+
+##### cv2 version : 4.2.0.34 (for windows 3.3.0.9 )
+
+``` pip3 install opencv-python ``` 
+
+``` pip install opencv-python=3.3.0.9 ``` ( for windows)
+
+##### scikit.image Version : 0.16.2
+
+``` pip3 install scikit-image ```
+
+##### colorama Version: 0.4.3
+
+``` pip3 install colorama ```
+
+##### pathlib Version: 1.0.1
+
+```pip3 install pathlib ```
+
+
  
  ## How to Use
  1. Import all the necessary libraries.
- 2. Pull the code use git colne
+ 2. Pull the code use ```git colne git@github.com:kuntalkumarbasu/image-comparison.git```
  you must make sure the `image-comparison.csv` file is in the same level as the `main.py` file. Or you can provide an absolute or relative filepath with a file name
 
  
@@ -130,9 +130,15 @@ __by default__
  type: `python3 main.py` in the command line (if `image-comparison.csv` is available in same level as the `main.py` file ).
  type: `python3 main.py <absolute/relative file for the input csv>` in the command line
 
+
+ To run the test, 
+ type: `python3 test_main.py` in the command line 
+
  Note: I have added a sample csv which is compatible with the images in the image folder. if we run the below command from the base directory of this project, the code will run and generate result.
 
  `python3 main.py sample.csv`
+
+ 
  
  #### Note: Sample images
  I've included some sample images (original, contrasted, "photoshopped") in case you needed some quick "similar" photos to test with. Apologies for no sample csv file.

@@ -142,7 +142,7 @@ __by default__
 
  ## Libraries Required 
 
-``` pip install opencv-python=3.3.0.9 ``` ( for windows)
+``` pip install opencv-python==3.3.0.9 ``` ( for windows)
 
 ``` pip install scikit-image ```
 
@@ -155,7 +155,7 @@ __by default__
 
  1. In winodws we used git bash client in linux or mac environment any client will work
  2. Import all the necessary libraries.
- 3. Pull the code use ```git colne git@github.com:kuntalkumarbasu/image-comparison.git```
+ 3. Pull the code use ```git clone git@github.com:kuntalkumarbasu/image-comparison.git```
  you must make sure the `image-comparison.csv` file is in the same level as the `main.py` file. Or you can provide an absolute or relative filepath with a file name
 
  

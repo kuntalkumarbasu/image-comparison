@@ -118,7 +118,37 @@ __by default__
 
 ```pip3 install pathlib ```
 
+### For Windows environments
 
+1. Setup Python in Windows
+2. Setting up the code GIT BASH in Windows
+3. Running code in Windows
+
+#### 1. Setup Python in Windows
+
+* go to [Python download page](https://www.python.org/downloads/)
+* Select version 3.6.8 <<https://www.python.org/downloads/release/python-368/>>
+* Download and Install
+
+#### 2. Setting up the code GIT BASH in Windows
+##### 2.1 Setting Up GIT BASH
+
+* Download git from the link https://git-scm.com/download/win
+* Install The downloaded installer
+
+## 2.2 Setup and run this image comparison in windows via GIT BASH
+* `git colne git@github.com:kuntalkumarbasu/image-comparison.git`
+*  setup the required libraries
+
+ ## Libraries Required 
+
+``` pip install opencv-python=3.3.0.9 ``` ( for windows)
+
+``` pip install scikit-image ```
+
+``` pip install colorama ```
+
+``` pip install pathlib ```
  
  ## How to Use
  1. Import all the necessary libraries.
@@ -138,7 +168,7 @@ __by default__
 
  `python3 main.py sample.csv`
 
- 
+
  
  #### Note: Sample images
  I've included some sample images (original, contrasted, "photoshopped") in case you needed some quick "similar" photos to test with. Apologies for no sample csv file.

@@ -122,7 +122,6 @@ __by default__
 
 1. Setup Python in Windows
 2. Setting up the code GIT BASH in Windows
-3. Running code in Windows
 
 #### 1. Setup Python in Windows
 
@@ -136,7 +135,8 @@ __by default__
 * Download git from the link https://git-scm.com/download/win
 * Install The downloaded installer
 
-## 2.2 Setup and run this image comparison in windows via GIT BASH
+##### 2.2 Setup and run this image comparison in windows via GIT BASH
+
 * `git colne git@github.com:kuntalkumarbasu/image-comparison.git`
 *  setup the required libraries
 
@@ -149,10 +149,13 @@ __by default__
 ``` pip install colorama ```
 
 ``` pip install pathlib ```
+
  
  ## How to Use
- 1. Import all the necessary libraries.
- 2. Pull the code use ```git colne git@github.com:kuntalkumarbasu/image-comparison.git```
+
+ 1. In winodws we used git bash client in linux or mac environment any client will work
+ 2. Import all the necessary libraries.
+ 3. Pull the code use ```git colne git@github.com:kuntalkumarbasu/image-comparison.git```
  you must make sure the `image-comparison.csv` file is in the same level as the `main.py` file. Or you can provide an absolute or relative filepath with a file name
 
  

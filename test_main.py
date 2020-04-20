@@ -10,7 +10,7 @@ def create_input_file(file1, file2):
 	csvfile = open(input_csv, "w")
 	csvfile.truncate()
 	csvfile.close()
-	with open(input_csv, 'a') as csvfile:
+	with open(input_csv, 'a', newline="\n") as csvfile:
 		csvfile.truncate()
 		writer = csv.writer(csvfile, delimiter=',',
 							quotechar='|', quoting=csv.QUOTE_MINIMAL)

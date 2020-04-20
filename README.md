@@ -16,17 +16,20 @@ Information regarding the algorithm can be found here: https://en.wikipedia.org/
 * The order of the columns are: image1, image2
 * The paths of the images lead to an existing image
 
-2. Python is already installed (I'm using version 3.7)
+2. Python is already installed (I'm using version 3.7 in mac 3.6.8 in windows)
 * ```pip``` is already installed
-* If Windows is being used, I assume Anaconda is already installed
+* If Windows is being used, I assume Anaconda is already installed with Python compatibility of 3.6 or instead you can download and use Python 3.6.8 directly as well
+* More details in GIT WIKI 
 
 3. The original csv file with the list of images is named `image-comparison.csv` and is in the same directory as `main.py`.
 
 ## Libraries Required 
-- If using Windows, perform these commands in Anaconda.
-#### cv2 version : 4.2.0.34
+
+#### cv2 version : 4.2.0.34 (for windows 3.3.0.9 )
 
 ``` pip3 install opencv-python ``` 
+
+``` pip install opencv-python=3.3.0.9 ``` ( for windows)
 
 #### scikit.image Version : 0.16.2
 
@@ -118,7 +121,8 @@ __by default__
  type: `python3 test_main.py` in the command line 
  
  ## How to Use
- Once all necessary libraries have been imported, 
+ 1. Import all the necessary libraries.
+ 2. Pull the code use git colne
  you must make sure the `image-comparison.csv` file is in the same level as the `main.py` file. Or you can provide an absolute or relative filepath with a file name
 
  

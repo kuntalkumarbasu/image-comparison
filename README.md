@@ -181,5 +181,7 @@ __by default__
  
  If all the modules have been installed/imported, yet errors regarding the modules are occuring, double check the versions of the libraries match the ones of the README. It is possible differing library versions can interfere with the functionality. Uninstall and reinstall the proper version of the libraries, or update them to the proper version if they are outdated.
  
+
+ The base of this project is inspired from "https://github.com/denzelkwan/image-comparison". I already opened an PR to the orginal project with all my modifictaions and improvements
  
  
